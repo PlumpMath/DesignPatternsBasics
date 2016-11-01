@@ -12,6 +12,7 @@ namespace BankingSystem
         private readonly TransfersSystem _transfersSystem;
         private readonly LoansSystem _loansSystem;
         private readonly InvestmentsSystem _investmentsSystem;
+        private NotificationsSystem _notificationsSystem;
 
         public double Balance { get; private set; } = 0;
         public double InterestRate { get; private set; } = 0;
@@ -29,6 +30,14 @@ namespace BankingSystem
         
         public void ChangeBalance(double balanceChange) =>
             Balance += balanceChange;
+
+        public void EnableNotifications()
+        {
+            _notificationsSystem = new NotificationsSystem();
+            _transfersSystem.Subscribe(_notificationsSystem);
+            _loansSystem.Subscribe(_notificationsSystem);
+            _investmentsSystem.Subscribe(_notificationsSystem);
+        }
 
         public void SetInterestRate(double interestRate) =>
             InterestRate = interestRate;
@@ -50,7 +59,7 @@ namespace BankingSystem
             _loansSystem.TakeLoan(amount, type);
 
         public void PayOffLoan(Guid id, double amount) =>
-            _loansSystem.PayOffLoans(id, amount);
+            _loansSystem.PayLoan(id, amount);
 
         public void InvestMoney(double amount, StrategyType type) =>
             _investmentsSystem.InvestMoney(amount, type);

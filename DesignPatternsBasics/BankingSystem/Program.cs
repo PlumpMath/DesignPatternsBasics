@@ -13,13 +13,15 @@ namespace BankingSystem
                 .AddLoan(3000, LoanType.Car)
                 .AddInvestment(2000, StrategyType.HighRisk)
                 .AddInvestment(5000, StrategyType.LowRisk)
+                .AddNotifications()
                 .Setup();
 
-            for (int i = 0; i < 10; i++)
-            {
-                WriteLine(account);
-                account.Evaluate();
-            }
+            WriteLine(account);
+            account.SendTransfer(450);
+            account.InvestMoney(3000, StrategyType.MediumRisk);
+            WriteLine(account);
+            account.Evaluate();
+            WriteLine(account);
 
             ReadKey();
         }

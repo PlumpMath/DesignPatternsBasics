@@ -1,9 +1,8 @@
-﻿using System;
-using BankingSystem.Investments;
+﻿using BankingSystem.Investments;
 
 namespace BankingSystem.Subsystems
 {
-    public class InvestmentsSystem
+    public class InvestmentsSystem : NotifierBase, INotifier
     {
         private Account _account;
 
@@ -14,8 +13,10 @@ namespace BankingSystem.Subsystems
 
         public void InvestMoney(double amount, StrategyType type)
         {
+            var investment = InvestmentFactory.CreateInvestment(type, amount);
+            _account.Investments.Add(investment);
             _account.ChangeBalance(-amount);
-            _account.Investments.Add(InvestmentFactory.CreateInvestment(type, amount));
+            Notify($"Investment has been made. Amount: {amount.ToString("F2")}, name: {investment.Name}");
         }
     }
 }

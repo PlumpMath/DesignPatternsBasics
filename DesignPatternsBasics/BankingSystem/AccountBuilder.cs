@@ -35,6 +35,12 @@ namespace BankingSystem
             return this;
         }
 
+        public AccountBuilder AddNotifications()
+        {
+            _account.EnableNotifications();
+            return this;
+        }
+
         public Account Setup()
         {
             return _account;

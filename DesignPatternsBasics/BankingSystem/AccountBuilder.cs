@@ -31,8 +31,7 @@ namespace BankingSystem
 
         public AccountBuilder AddInvestment(double amount, StrategyType type)
         {
-            var investment = InvestmentFactory.CreateInvestment(type, amount);
-            _account.Investments.Add(investment);
+            _account.Investments.Add(InvestmentFactory.CreateInvestment(type, amount));
             return this;
         }
 

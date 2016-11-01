@@ -3,8 +3,7 @@
     public class HighRiskInvestment : Investment
     {
         public HighRiskInvestment(double initialBalance) : base(initialBalance)
-        {
-        }
+        { }
 
         public override string Name { get; } = "High Risk Investment";
 

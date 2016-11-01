@@ -3,8 +3,7 @@
     public class MediumRiskInvestment : Investment
     {
         public MediumRiskInvestment(double initialBalance) : base(initialBalance)
-        {
-        }
+        { }
 
         public override string Name { get; } = "Medium Risk Investment";
 

@@ -15,10 +15,9 @@ namespace BankingSystem
                 .AddInvestment(5000, StrategyType.LowRisk)
                 .Setup();
 
-            var transactionSystem = account.GetTransactionSystem();
             for (int i = 0; i < 10; i++)
             {
-                WriteLine(transactionSystem.GetAccountInfo());
+                WriteLine(account);
                 account.Evaluate();
             }
 

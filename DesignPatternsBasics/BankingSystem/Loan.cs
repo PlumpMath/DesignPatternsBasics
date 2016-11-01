@@ -43,5 +43,10 @@ namespace BankingSystem
         {
             Balance *= (1 + InterestRate);
         }
+
+        public void PayOff(double amount)
+        {
+            Balance -= amount;
+        }
     }
 }

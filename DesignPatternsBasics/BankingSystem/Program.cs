@@ -9,21 +9,17 @@ namespace BankingSystem
         {
             var account = new AccountBuilder()
                 .AddInitialBalance(10000)
-                .AddLoan(3000)
+                .AddIntrestRate(0.03)
+                .AddLoan(3000, LoanType.Car)
                 .AddInvestment(2000, StrategyType.HighRisk)
                 .AddInvestment(5000, StrategyType.LowRisk)
                 .Setup();
 
-            WriteLine($"Balance: {account.Balance}");
-            WriteLine($"Number of loans: {account.Loans.Count}");
-            foreach (var loan in account.Loans)
+            var transactionSystem = account.GetTransactionSystem();
+            for (int i = 0; i < 10; i++)
             {
-                WriteLine($"Loan ID: {loan.Id}, balance: {loan.Balance}");
-            }
-            WriteLine($"Number of investment: {account.Investments.Count}");
-            foreach (var investment in account.Investments)
-            {
-                WriteLine($"Investment name: {investment.Name}, balance: {investment.Balance}, volatility: {investment.Volatility}");
+                WriteLine(transactionSystem.GetAccountInfo());
+                account.Evaluate();
             }
 
             ReadKey();

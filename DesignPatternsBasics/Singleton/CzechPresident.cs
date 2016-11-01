@@ -21,6 +21,6 @@ namespace Singleton
 
         public string IntroduceYourself() =>
 $@"I am President of the Czech Republic, Milos Zelman!
-I am holding office for {(DateTime.Now - ElectionTime).TotalSeconds.ToString("#.##")} seconds.";
+I am holding office for {(DateTime.Now - ElectionTime).TotalSeconds.ToString("F2")} seconds.";
     }
 }

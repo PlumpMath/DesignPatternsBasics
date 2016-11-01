@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountBuilder.cs" />
+    <Compile Include="IBankingProduct.cs" />
     <Compile Include="Investments\HighRiskInvestment.cs" />
     <Compile Include="Investments\Investment.cs" />
     <Compile Include="Investments\InvestmentFactory.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Loan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

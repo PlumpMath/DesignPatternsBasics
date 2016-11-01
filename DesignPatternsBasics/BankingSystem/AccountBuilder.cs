@@ -13,13 +13,19 @@ namespace BankingSystem
 
         public AccountBuilder AddInitialBalance(double initialBalance)
         {
-            _account.AddToBalance(initialBalance);
+            _account.ChangeBalance(initialBalance);
             return this;
         }
 
-        public AccountBuilder AddLoan(double amount)
+        public AccountBuilder AddIntrestRate(double interestRate)
         {
-            _account.Loans.Add(Loan.Create(amount));
+            _account.SetInterestRate(interestRate);
+            return this;
+        }
+
+        public AccountBuilder AddLoan(double amount, LoanType type)
+        {
+            _account.Loans.Add(Loan.Create(amount, type));
             return this;
         }
 
